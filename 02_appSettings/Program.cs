@@ -1,31 +1,32 @@
 var builder = WebApplication.CreateBuilder(args);
 var app = builder.Build();
 
-//šappSettings.json‚Ìİ’è‚Ìæ“¾•û–@
+//â˜…appSettings.jsonã®è¨­å®šã®å–å¾—æ–¹æ³•
+//ã€€launchSettings.jsonã®è¨­å®šï¼ˆASPNETCORE_ENVIRONMENTï¼‰ã‚’åˆ‡ã‚Šæ›¿ãˆã¦ã€å‹•ä½œç¢ºèªã™ã‚‹ã€‚
 app.MapGet("/", () => "ASPNETCORE_ENVIRONMENT_Test: " + app.Configuration.GetValue<string>("Test"));
 //app.MapGet("/", () => "ASPNETCORE_ENVIRONMENT_Test: " + app.Configuration["Test"]);
 
-//šjson‚ÌŠK‘w\‘¢‚ÌQÆ‚Ìd•û ƒRƒƒ“‚Å‹æØ‚é
+//â˜…jsonã®éšå±¤æ§‹é€ ã®å‚ç…§ã®ä»•æ–¹ ã‚³ãƒ­ãƒ³ã§åŒºåˆ‡ã‚‹
 //app.MapGet("/", () => "ASPNETCORE_ENVIRONMENT_Test: " + app.Configuration["Logging:LogLevel:Default"]);
 
 
-//WebApplication.CreateBuilder(args);‚Å‚â‚Á‚Ä‚é‚±‚Æ‚ğƒŠƒZƒbƒg‚·‚é
+//WebApplication.CreateBuilder(args);ã§ã‚„ã£ã¦ã‚‹ã“ã¨ã‚’ãƒªã‚»ãƒƒãƒˆã™ã‚‹
 
-//‚¿‚È‚İ‚ÉDevelopmentŠÂ‹«‚Ì‚İÀs‚·‚é‚æ‚¤‚ÈDebug“I‚ÈU‚é•‘‚¢‚à‰Â”\
+//ã¡ãªã¿ã«Developmentç’°å¢ƒã®ã¿å®Ÿè¡Œã™ã‚‹ã‚ˆã†ãªDebugçš„ãªæŒ¯ã‚‹èˆã„ã‚‚å¯èƒ½
 if (app.Environment.IsDevelopment()) 
 {
-    //ŠJ”­ŠÂ‹«
+    //é–‹ç™ºç’°å¢ƒ
     app.MapGet("/Dev/", () => "Development!!HOGEHOGE!!");
-    //—á‚¦‚ÎAƒfƒoƒbƒOŠÂ‹«‚¾‚¯ƒ†[ƒUƒtƒŒƒ“ƒhƒŠ[‚Å‚È‚¢stacktraceƒƒbƒZ[ƒW‚ğ•\¦‚·‚é‚æ‚¤‚È‹Lq‚ğ‚±‚±‚É‘‚¢‚½‚è‚·‚éB
+    //ä¾‹ãˆã°ã€ãƒ‡ãƒãƒƒã‚°ç’°å¢ƒã ã‘ãƒ¦ãƒ¼ã‚¶ãƒ•ãƒ¬ãƒ³ãƒ‰ãƒªãƒ¼ã§ãªã„stacktraceãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’è¡¨ç¤ºã™ã‚‹ã‚ˆã†ãªè¨˜è¿°ã‚’ã“ã“ã«æ›¸ã„ãŸã‚Šã™ã‚‹ã€‚
 }
 if (app.Environment.IsProduction()) 
 {
-    //–{”ÔŠÂ‹«
+    //æœ¬ç•ªç’°å¢ƒ
     app.MapGet("/Production/", () => "Production!!HOGEHOGE!!");
 }
 if (app.Environment.IsStaging()) 
 {
-    //–{”ÔŠÂ‹«‚É‹ß‚¢ŒŸØŠÂ‹«
+    //æœ¬ç•ªç’°å¢ƒã«è¿‘ã„æ¤œè¨¼ç’°å¢ƒ
 }
 if (app.Environment.IsEnvironment("Sample")) 
 {

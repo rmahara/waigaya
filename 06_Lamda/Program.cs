@@ -1,0 +1,4 @@
+﻿public delegate (int num) 
+{
+    
+}
