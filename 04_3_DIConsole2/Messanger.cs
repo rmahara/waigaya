@@ -13,8 +13,7 @@
 
         public string GetMessage()
         {
-            var service = new WeatherService();
-            var tomorrowWeather = service.GetTomorrowWeather();
+            var tomorrowWeather = weatherService.GetTomorrowWeather();
             switch (tomorrowWeather)
             {
                 case "晴れ":
@@ -27,10 +26,5 @@
                     throw new Exception("想定外エラー");
             }
         }
-    }
-
-    public interface IWeatherService 
-    {
-    
     }
 }

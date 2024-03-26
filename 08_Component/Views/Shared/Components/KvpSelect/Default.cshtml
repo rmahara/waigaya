@@ -1,0 +1,15 @@
+﻿@model _08_Component.Views.Shared.Components.KvpSelect.KvpSelectResponse
+
+<div class="row">
+    <div class="col-5">
+        @Model.Title
+    </div>
+    <div class="col-7">
+        <select id="@Model.HtmlId" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+            @foreach (var kvp in Model.SelectItems)
+            {
+                <option value ="@kvp.Id">@kvp.Name</option>
+            }
+        </select>
+    </div>
+</div>

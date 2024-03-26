@@ -1,0 +1,5 @@
+﻿@01_lanchSettings_HostAddress = https://localhost:7025
+
+GET {{01_lanchSettings_HostAddress}}/Student/{id}
+
+###

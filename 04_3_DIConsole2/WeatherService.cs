@@ -1,6 +1,6 @@
 ﻿namespace _04_3_DIConsole2
 {
-    public class WeatherService 
+    public class WeatherService : IWeatherService
     {
         public string GetTomorrowWeather()
         {
